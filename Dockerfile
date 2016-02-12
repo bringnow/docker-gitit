@@ -7,9 +7,11 @@ MAINTAINER Fabian Köster <fabian.koester@bringnow.com>
 RUN apt-get update -qq
 
 # Install required packages (git required by gitlab-runner)
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends mime-support gitit libghc-filestore-data
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends mime-support gitit libghc-filestore-data ssmtp
 
 VOLUME ["/data"]
+
+VOLUME ["/etc/ssmtp"]
 
 COPY docker-entrypoint.sh /
 
